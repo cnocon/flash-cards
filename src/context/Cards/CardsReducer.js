@@ -6,11 +6,6 @@ export default (state, action) => {
   switch (type) {
     case GET_CARDS:
       return { ...state, cards: payload };
-    // case GET_ACTIVE_CARD:
-    //   return {
-    //     ...state,
-    //     activeNews: payload,
-    //   };
     default:
       return state;
   }
