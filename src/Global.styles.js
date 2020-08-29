@@ -6,69 +6,25 @@ export default {styles: css`
     font-size: 10px;
     height: 100%;
     max-width: 100%;
-    overflow: hidden;
     box-sizing: border-box;
+    position: relative;
   }
 
   .overlay {
-    z-index: 1;
-    position: absolute;
-    width: 200vw;  
-    height: 200vh;
     display: block;
+    position: absolute;
+    top: -60px;
+    left: 0;
     content: '';
-    top: -50vh;
-    left: -50vw;
+    min-height: 200vh;
+    width: 200vw;
+    min-width: 100vw;
+    max-height: 100vh;
+    z-index: 1;
+    transform: translate(-50%, -50%);
     background-color: rgba(0,0,0,.875);
   }
-  
-  .img-container.lightbox::-webkit-scrollbar {
-    -webkit-appearance: none;
-  }
 
-  .img-container.lightbox::-webkit-scrollbar:vertical {
-      width: 11px;
-  }
-
-  .img-container.lightbox::-webkit-scrollbar:horizontal {
-      height: 11px;
-  }
-
-  .img-container.lightbox::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      border: 2px solid rgba(0, 0, 0, .5);
-      background-color: #fff;
-  }
-  .img-container.lightbox {
-    top: 0;
-    left: 0;
-    position: absolute !important;
-    max-width: 100%;
-    width: 100%;
-    height: 100%;
-    overflow-x: auto;
-    z-index: 888;
-  }
-
-  .img-container.lightbox img {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 4px;
-    
-    width: auto;
-    min-width: 100% !important;
-    max-width: 900px !important;
-    
-    min-height: 50vh !important;
-    max-height: unset !important;
-    height: auto !important;
-
-    z-index: 9999;
-    cursor: pointer;
-  }
 
   body {
     box-sizing: inherit;
@@ -78,22 +34,14 @@ export default {styles: css`
     height: 100%;
     max-width: 100%;
     margin: 0;
+    overflow-x: hidden;
 
     @media screen and (min-width: 1200px) {
-      overflow: hidden;
+      overflow-x: hidden;
     }
   }
 
-  main {
-    height: 100%;
-  }
-
-  .row {
-    @media screen and (max-width: 1199px) {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
+  main {height: 100%;}
 
   .wrapper-outer {
     padding: ${Theme.spacing.xs} ${Theme.spacing.default} ${Theme.spacing.xl};

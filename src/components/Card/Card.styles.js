@@ -22,36 +22,10 @@ export const Card = styled.div`
   @media screen and (min-width: 1000px) {
     position: absolute;
     left: 50%;
-    top: 52.5vh;
+    /* top: 52.5vh; */
+    top: 57vh;
     transform: translate(-50%, -50%);
-  }
-  
-
-  &.front .section-inner .prompt {
-    p, 
-    .text {
-      @media screen and (min-width: 900px) {
-        font-size: 24px; 
-        line-height: 32px; 
-        font-weight: 400;
-      }
-    }
-  }
-  
-  &.back .prompt {
-    p:not(.image-note), 
-    .text {
-      text-align: left;
-      align-self: flex-start;
-
-      &:first-of-type:not(div) {
-        text-align: center;
-        align-self: center;
-        font-weight: 600;
-        font-size: 24px; 
-        line-height: 28px;
-      }
-    }
+    max-width: 850px;
   }
   
   &.current { 
@@ -59,49 +33,6 @@ export const Card = styled.div`
     flex-direction: column;
   }
 
-  .section-inner {
-    overflow-y: scroll;
-    padding: 20px 0;
-    margin-right: -11px;
-    padding-right: 11px;
-    min-height: 200px;
-    max-height: 325px;
-    height: 50vh;
-
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-    }
-
-    &::-webkit-scrollbar:vertical {
-        width: 11px;
-    }
-
-    &::-webkit-scrollbar:horizontal {
-        height: 11px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        border: 2px solid #fff; /* should match background, can't be transparent */
-        background-color: rgba(0, 0, 0, .5);
-    }
-
-  }
-
-
-  .img-container { 
-    cursor: pointer;
-    // max-width: 100%; 
-    // overflow: scroll;
-
-    img {
-      // min-width: 500px;
-      border: 1px solid #345;
-      max-width: 100%;
-    }
-  }
-
-  
   div:not(.media) a,
   div:not(.media) p a {
     color: ${Theme.colors.default.base};
@@ -130,9 +61,6 @@ export const Card = styled.div`
       ${Theme.colors.accents.yellow} 100%);
     }
   }
-  
-  .section-inner .prompt .gist-meta,
-  .section-inner .prompt .gist-meta a {font-size: 13px; background-image: none;}
 
   pre:not(.prettyprint) {
     display: inline-block;
@@ -141,35 +69,42 @@ export const Card = styled.div`
     padding: 1px 6px;
     margin: 0;
     text-align: left;
+    font-weight: 400;
+    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
   }
 
   pre.prettyprint {
     text-align: left;
     border-radius: 4px;
+    padding: 20px;
+    font-size: 15px;
+    text-align: left;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
   
-    code {
+    code,
+    span {
       padding: 0;
       background-color: inherit;
-    }
-
-    span {
-      font-size: 13px;
-      font-weight: 500;
-      text-align: left;
+      font-size: inherit;
+      text-align: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      font-family: inherit;
     }
   }
 
-  
-
   code,
   pre:not(.prettyprint) {
-    padding: 0 3px;
-    background-color: ${Theme.colors.codeBg};
     display: inline-block;
-    border-radius: 4px;
+    padding: 0 3px;
     margin: 0 1px;
-    line-height: 1.3em;
-    font-family: 'Menlo', 'monaco', monospace;
+    line-height: 1.25;
+    font-weight: 400;
+    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
+    background-color: ${Theme.colors.codeBg};
+    border-radius: 4px;
 
     pre & {
       background-color: inherit;
@@ -178,21 +113,54 @@ export const Card = styled.div`
   }
 
   .section-inner {
+    overflow-y: scroll;
+    padding: 20px 31px 20px 20px;
+    margin-right: -11px;
+    min-height: 300px;
+    height: 50vh;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    // background-color: ${Theme.colors.grays.backgroundAlt};
     margin-left: -16px;
     margin-right: -16px;
+
+    @media screen and (min-width: ${Theme.breakpoints.min.md}) {
+      min-height: 450px;
+    }
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:vertical {
+        width: 11px;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid #fff; /* should match background, can't be transparent */
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    .gist-meta,
+    .gist-meta a {font-size: 13px; background-image: none;}
 
     .img-container-outer {  
       max-width: 100%;
       overflow-x: scroll;
       margin: 20px auto;
+
+      .img-container { 
+        cursor: pointer;
+      }
     }
 
-    .prompt  { 
+    .prompt { 
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -209,13 +177,35 @@ export const Card = styled.div`
         }
       }
 
+      p:not(.image-note) {
+        text-align: left;
+        align-self: flex-start;
+        
+        @media screen and (min-width: 900px) {
+          font-size: 24px; 
+          line-height: 32px; 
+          font-weight: 400;
+        }
+
+        &:first-of-type {
+          text-align: center;
+          align-self: center;
+          font-weight: 600;
+          font-size: 24px; 
+          line-height: 28px;
+        }
+      }
+
       ul, ol {
         text-align: left; 
         list-style-position: outside; 
         padding-left: 0;
       }
 
-      li, p:not(.image-note), div, td, th {
+      p:not(.image-note), 
+      div, 
+      td, 
+      th {
         font-family: ${Theme.fonts.headings.family};
         font-size: 18px;
         line-height: 26px;
@@ -227,30 +217,39 @@ export const Card = styled.div`
       }
 
       li { 
-        font-size: 17px;
-        margin-bottom: 5px;
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 7.5px;
+        padding-left: 10px;
+        font-family: ${Theme.fonts.headings.family};
 
         @media screen and (max-width: ${Theme.breakpoints.max.sm}) {
-          font-size: 13px;
+          font-size: 14px;
           line-height: 20px;
         }
       }
 
       p {
         margin: 0 0 15px;
+        font-size: ${Theme.fonts.sizes.default};
+        line-height: ${Theme.fonts.sizes.lineHeights.default};
+        color: ${Theme.colors.default.base};
+
+        &:first-of-type:not(.image-note) {
+          margin: 0 0 20px;
+          text-align: center;
+          font-weight: 900;
+        }
+      }
+
+      strong, b, em {
+        font-weight: 900;
       }
 
       ol,
       ul {
         margin: 15px auto 20px;
         padding-left: 0;
-      }
-
-      p:first-of-type {
-        margin: 0 0 25px;
-        text-align: center;
-
-        strong, b, em {font-weight: 900;}
       }
     }
   }
@@ -275,7 +274,7 @@ export const Card = styled.div`
       display: flex;
       flex-direction: row;
       flex-basis: auto;
-      width: 100%;
+      max-width: 100%;
       padding: 22px 20px;
       justify-content: space-between;
       align-items: center;
@@ -389,19 +388,69 @@ export const Card = styled.div`
   .orange {
     color: ${Theme.colors.accents.orange};
   }
-  
-  p,
-  .text { 
-    font-size: ${Theme.fonts.sizes.default};
-    line-height: ${Theme.fonts.sizes.lineHeights.default};
-    color: ${Theme.colors.default.base};
-  }
 
-  .img-container-outer { text-align: center; }
-  .image-note {
-    display: none;
+  .img-container-outer {
+    text-align: center;
 
-    @media screen and (max-width: 600px) {
+    .img-container {
+      
+      &.lightbox {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute !important;
+        z-index: 888;
+        left: 0;
+        position: absolute !important;
+
+        @media screen and (max-width: 900px) {
+          overflow-x: auto;
+          &::-webkit-scrollbar {-webkit-appearance: none;}
+          &::-webkit-scrollbar:vertical {width: 11px;}
+          &::-webkit-scrollbar:horizontal {height: 11px;}
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            border: 2px solid rgba(0, 0, 0, .5);
+            background-color: ${Theme.colors.accents.vivid.purple};
+          }
+        }
+          
+        img {
+          display: block;
+          position: absolute;
+          height: auto !important;
+          max-height: unset !important;
+          min-width: 100%;
+          width: 100%;
+          max-width: none !important;
+          box-shadow: 10px 10px 250px 75px rgba(0,0,0,1);
+          left: 0;
+          top: 50%;
+          z-index: 9999;
+          border-radius: 4px;
+          transform: translateY(-50%);
+          cursor: pointer;
+
+          @media screen and (max-width: 1000px) {
+
+      
+          
+          }
+        }
+      }
+
+      img {
+        border: 1px solid #345;
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        border-radius: 4px;
+      }
+    }
+
+    p.image-note {
       display: block;
       text-align: center;
       width: 100%;
