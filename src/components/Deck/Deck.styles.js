@@ -36,29 +36,35 @@ export const CategoriesNav = styled.nav`
 `
 
 export const AppHeader = styled.header`
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
 `
 
 export const AppHeading = styled.h1`
   text-align: center;
   font-weight: 900;
   line-height: 1em;
-  margin-bottom: 0;
-  padding-bottom: 30px;
+  margin: 0 auto;
+  padding: 20px 0 60px;
   text-transform: uppercase;
   font-family: ${Theme.fonts.accent.family};
-  font-size: 90px;
   line-height: 1.25;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   width: 100%;
 
-  @media screen and (max-width: ${Theme.breakpoints.max.sm}) {
-    font-size: 45px !important;
+  @media screen and (max-width: ${Theme.breakpoints.max.md}) {
+    font-size: 35px !important;
     width: 100%;
   }
 
   @media screen and (max-width: ${Theme.breakpoints.max.lg}) {
-    font-size: 70px !important;
+    font-size: 50px !important;
     width: 100%;
+  }
+
+  @media screen and (min-width: ${Theme.breakpoints.min.lg}) {
+    font-size: 65px;
   }
 `

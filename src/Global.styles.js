@@ -10,21 +10,6 @@ export default {styles: css`
     position: relative;
   }
 
-  .overlay {
-    display: block;
-    position: absolute;
-    top: -60px;
-    left: 0;
-    content: '';
-    min-height: 200vh;
-    width: 200vw;
-    min-width: 100vw;
-    max-height: 100vh;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0,0,0,.875);
-  }
-
 
   body {
     box-sizing: inherit;
@@ -496,8 +481,35 @@ export default {styles: css`
     }
   }  
 
-
   .peach-bg-gradient {
     background-image: linear-gradient(45deg, #DE6262 10%, #FFB88C 90%);
+  }
+
+  .blue {
+    color: ${Theme.colors.accents.blue};
+  }
+
+  .red {
+    color: ${Theme.colors.accents.vivid.red};
+  }
+  
+  .green {
+    color: ${Theme.colors.accents.vivid.green};
+  }
+  
+  .yellow {
+    color: ${Theme.colors.accents.background.yellow};
+  }
+  
+  .purple {
+    color: ${Theme.colors.accents.vivid.purple};
+  }
+
+  .royal-blue {
+    color: ${Theme.colors.accents.royalBlue};
+  }
+  
+  .orange {
+    color: ${Theme.colors.accents.orange};
   }
 `}

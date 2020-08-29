@@ -14,9 +14,9 @@ export const App = () => {
         <HelmetProvider>
           <Helmet><title>Front End Development Flash Cards</title></Helmet>
           <Styled.Layout>
-            <div className='main-wrapper'>
+            <Styled.MainWrapper>
               <Deck cards={CardsContext.activeCards} />
-            </div>
+            </Styled.MainWrapper>
           </Styled.Layout>
         </HelmetProvider>
       </ThemeProvider>

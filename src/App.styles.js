@@ -16,6 +16,12 @@ export const Layout = styled.div(
   })
 )
 
+export const MainWrapper = styled.div(
+  ({theme}) => ({
+    height: `100%`,
+  })
+)
+
 export const Main = styled.main(
   ({theme}) => ({
     maxWidth: `${theme.layout.widths.lgMax}`,

@@ -83,6 +83,7 @@ const imgClickHandler = e => {
 };
 
 export const generateMedia = media => {
+  const styles = media.hasOwnProperty('height') ? { maxHeight: `${media.height}px` } : {};
   switch (media.type) {
     case 'image':
       return (
@@ -91,7 +92,7 @@ export const generateMedia = media => {
             <img 
               src={media.url}
               alt={media.desc}
-              style={{maxWidth: '100%', maxHeight: media.hasOwnProperty('height') ? `${media.height}px` : ``}}
+              style={styles}
             />
           </div>
           <p className="image-note">Click or tap image to view larger version.</p>

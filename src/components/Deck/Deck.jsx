@@ -34,27 +34,9 @@ const Deck = () => {
   }, [activeCategorySlug, activeCategoryId]);
   
   return (
+    <>
+    <Styled.AppHeading>Front End Dev Flash Cards</Styled.AppHeading>
     <Styled.Deck>
-
-      <Styled.AppHeader>
-        <Styled.AppHeading>Front End Dev Flash Cards</Styled.AppHeading>
-        <Styled.CategoriesNav>
-          <a onClick={e => handleCategoryClick(e, '', 'all') } key="all" className={activeCategorySlug === 'all' ? 'active' : ''}>All</a>
-          
-          { CardsContext.categories.sort((a, b) => a < b ? -1 : 1)
-              .map((fullCategory, i) => {
-                if (!fullCategory) {return null}
-                return (
-                  <a className={fullCategory._id == activeCategoryId ? 'active' : ''} 
-                    onClick={e => handleCategoryClick(e, fullCategory._id, fullCategory.slug) }
-                    key={`${fullCategory._id}-${i}`}>
-                    {fullCategory.name}
-                  </a>
-                )
-            })
-          }
-        </Styled.CategoriesNav>
-      </Styled.AppHeader>
 
       { activeCategorySlug === 'all'
         ? Object.values(CardsContext.cards)
@@ -87,6 +69,25 @@ const Deck = () => {
         })
       }
     </Styled.Deck>
+    <Styled.AppHeader>
+    <Styled.CategoriesNav>
+        <a onClick={e => handleCategoryClick(e, '', 'all') } key="all" className={activeCategorySlug === 'all' ? 'active' : ''}>All</a>
+        { CardsContext.categories.sort((a, b) => a < b ? -1 : 1)
+            .map((fullCategory, i) => {
+              if (!fullCategory) {return null}
+              return (
+                <a className={fullCategory._id == activeCategoryId ? 'active' : ''} 
+                  onClick={e => handleCategoryClick(e, fullCategory._id, fullCategory.slug) }
+                  key={`${fullCategory._id}-${i}`}>
+                  {fullCategory.name}
+                </a>
+              )
+          })
+        }
+      </Styled.CategoriesNav>
+      
+    </Styled.AppHeader>
+    </>
   );
 };
 

@@ -19,18 +19,116 @@ export const Card = styled.div`
               0 16px 16px rgba(0,0,0,0.11), 
               0 32px 32px rgba(0,0,0,0.11);
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: ${Theme.breakpoints.min.lg}) {
     position: absolute;
     left: 50%;
-    /* top: 52.5vh; */
-    top: 57vh;
-    transform: translate(-50%, -50%);
-    max-width: 850px;
+    top: 60px;
+    transform: translate(-50%, 0);
   }
+  
   
   &.current { 
     display: flex;
     flex-direction: column;
+  }
+
+
+  header {
+    margin: 0 -17px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    padding: 0;
+    background-color: ${Theme.colors.default.darkest};
+
+    .subheader {
+      display: flex;
+      flex-direction: row;
+      flex-basis: auto;
+      max-width: 100%;
+      padding: 22px 20px;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      /* height: 100%; */
+
+      @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
+        padding: 20px 10px;
+      }
+
+      > div {
+        flex-basis: auto;
+        width: 33.333%;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        justify-items: center;
+        /* height: 100%; */
+
+        @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
+          i {display: none;}
+        }
+
+        &:first-of-type {
+          justify-content: flex-start;
+          line-height: 2.25rem;
+
+          .level {
+            color: ${Theme.colors.grays.textOnDark};
+            vertical-align: middle;
+            line-height: 14px;
+            font-weight: 900;
+            font-family: ${Theme.fonts.headings.family};
+            font-size: 14px;         
+
+            i {font-size: 16px; line-height: 14px; margin-left: 3px;}
+          }
+        }
+
+        &:last-of-type {
+          justify-content: flex-end;
+          line-height: 2.25rem;
+
+          .tag {
+            color: ${Theme.colors.grays.textOnDark};
+            vertical-align: middle;
+            line-height: 14px;
+            font-weight: 900;
+            font-family: ${Theme.fonts.headings.family};
+            font-size: 14px;
+
+            @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
+              font-size: 12px;
+              letter-spacing: -.5px;
+            }
+
+            i {
+              font-size: 16px; 
+              margin-left: 5px;
+              transform: translateY(1px);
+            }
+          }
+        }
+
+        h3,
+        > span {
+          font-size: 14px;
+          line-height: 22.5px;
+          vertical-align: middle;
+          height: auto;color: #fff;
+        }
+        
+        h3 {
+          font-family: ${Theme.fonts.headings.family};
+          font-weight: 800;
+          margin: 0 auto;
+          width: unset;
+
+          @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
+            font-size: 13px;
+          }
+        }
+      }
+    }
   }
 
   div:not(.media) a,
@@ -113,17 +211,16 @@ export const Card = styled.div`
   }
 
   .section-inner {
-    overflow-y: scroll;
-    padding: 20px 31px 20px 20px;
-    margin-right: -11px;
-    min-height: 300px;
-    height: 50vh;
-    min-height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    /* min-height: 300px; */
+    /* height: 50vh; */
+    /* min-height: 100%; */
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-left: -16px;
-    margin-right: -16px;
+    /* margin-left: -16px; */
+    /* margin-right: -16px; */
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
       min-height: 450px;
@@ -143,22 +240,13 @@ export const Card = styled.div`
 
     &::-webkit-scrollbar-thumb {
         border-radius: 8px;
-        border: 2px solid #fff; /* should match background, can't be transparent */
+         /* should match background, can't be transparent */
+        border: 2px solid ${Theme.colors.accents.purple};
         background-color: rgba(0, 0, 0, .5);
     }
 
     .gist-meta,
     .gist-meta a {font-size: 13px; background-image: none;}
-
-    .img-container-outer {  
-      max-width: 100%;
-      overflow-x: scroll;
-      margin: 20px auto;
-
-      .img-container { 
-        cursor: pointer;
-      }
-    }
 
     .prompt { 
       display: flex;
@@ -169,7 +257,8 @@ export const Card = styled.div`
       align-items: center;
 
       .media {
-        width: 100%; 
+        /* max-width: 100%;  */
+        /* overflow: auto; */
 
         pre.prettyprint {
           width: 100%; 
@@ -243,7 +332,7 @@ export const Card = styled.div`
       }
 
       strong, b, em {
-        font-weight: 900;
+        font-weight: 700;
       }
 
       ol,
@@ -263,149 +352,53 @@ export const Card = styled.div`
     align-items: center;
   }
 
-  header {
-    margin: 0 -16px;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-    padding: 0;
-    background-color: ${Theme.colors.default.darkest};
+  .overlay {
+    display: block;
+    position: absolute;
+    top: calc(50% + 80px);
+    left: 50%;
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    transform: translate(-50%,-50%);
+    background-color: hsl(0deg 0% 0% / 88%);
 
-    .subheader {
-      display: flex;
-      flex-direction: row;
-      flex-basis: auto;
-      max-width: 100%;
-      padding: 22px 20px;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-      height: 100%;
-
-      @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
-        padding: 20px 10px;
-      }
-
-      > div {
-        flex-basis: auto;
-        width: 33.333%;
-        display: flex;
-        align-self: center;
-        justify-content: center;
-        justify-items: center;
-        height: 100%;
-
-        @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
-          i {display: none;}
-        }
-
-        &:first-of-type {
-          justify-content: flex-start;
-          line-height: 2.25rem;
-
-          .level {
-            color: ${Theme.colors.grays.textOnDark};
-            vertical-align: middle;
-            line-height: 14px;
-            font-weight: 900;
-            font-family: ${Theme.fonts.headings.family};
-            font-size: 14px;         
-
-            i {font-size: 16px; line-height: 14px; margin-left: 3px;}
-          }
-        }
-
-        &:last-of-type {
-          justify-content: flex-end;
-          line-height: 2.25rem;
-
-          .tag {
-            color: ${Theme.colors.grays.textOnDark};
-            vertical-align: middle;
-            line-height: 14px;
-            font-weight: 900;
-            font-family: ${Theme.fonts.headings.family};
-            font-size: 14px;
-
-            @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
-              font-size: 12px;
-              letter-spacing: -.5px;
-            }
-
-            i {
-              font-size: 16px; 
-              margin-left: 5px;
-              transform: translateY(1px);
-            }
-          }
-        }
-
-        h3,
-        > span {
-          font-size: 14px;
-          line-height: 22.5px;
-          vertical-align: middle;
-          height: auto;color: #fff;
-        }
-        
-        h3 {
-          font-family: ${Theme.fonts.headings.family};
-          font-weight: 800;
-          margin: 0 auto;
-          width: unset;
-
-          @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
-            font-size: 13px;
-          }
-        }
-      }
+    @media screen and (min-width: ${Theme.breakpoints.min.lg}) {
+      top: 0;
+      left: 0;
+      transform: none; 
     }
-  }
-
-  .blue {
-    color: ${Theme.colors.accents.blue};
-  }
-
-  .red {
-    color: ${Theme.colors.accents.vivid.red};
-  }
-  
-  .green {
-    color: ${Theme.colors.accents.vivid.green};
-  }
-  
-  .yellow {
-    color: ${Theme.colors.accents.background.yellow};
-  }
-  
-  .purple {
-    color: ${Theme.colors.accents.vivid.purple};
-  }
-
-  .royal-blue {
-    color: ${Theme.colors.accents.royalBlue};
-  }
-  
-  .orange {
-    color: ${Theme.colors.accents.orange};
   }
 
   .img-container-outer {
     text-align: center;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
 
     .img-container {
-      
-      &.lightbox {
+      cursor: pointer;
+    
+      p.image-note {
+        display: block;
+        text-align: center;
+        width: 100%;
+        font-size: 12px;
+      }
+
+      &.lightbox {  
+        display: block;
+        position: absolute;
+        z-index: 9999999;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
         top: 0;
         left: 0;
-        height: 100%;
-        width: 100%;
-        position: absolute !important;
-        z-index: 888;
-        left: 0;
-        position: absolute !important;
 
-        @media screen and (max-width: 900px) {
-          overflow-x: auto;
+        @media screen and (max-width: ${Theme.breakpoints.max.lg}) {
+          /* Always show scrollbars */
           &::-webkit-scrollbar {-webkit-appearance: none;}
           &::-webkit-scrollbar:vertical {width: 11px;}
           &::-webkit-scrollbar:horizontal {height: 11px;}
@@ -416,45 +409,20 @@ export const Card = styled.div`
             background-color: ${Theme.colors.accents.vivid.purple};
           }
         }
-          
+
+
         img {
-          display: block;
           position: absolute;
-          height: auto !important;
-          max-height: unset !important;
-          min-width: 100%;
-          width: 100%;
-          max-width: none !important;
-          box-shadow: 10px 10px 250px 75px rgba(0,0,0,1);
-          left: 0;
+          z-index: 99999;
           top: 50%;
-          z-index: 9999;
-          border-radius: 4px;
-          transform: translateY(-50%);
-          cursor: pointer;
-
-          @media screen and (max-width: 1000px) {
-
-      
-          
-          }
+          left: 0;
+          max-width: 800px;
+          height: auto;
+          min-width: 100%;
+          display: block;
+          transform: translateY(calc(-50% + 80px));
         }
       }
-
-      img {
-        border: 1px solid #345;
-        height: auto;
-        width: auto;
-        max-width: 100%;
-        border-radius: 4px;
-      }
-    }
-
-    p.image-note {
-      display: block;
-      text-align: center;
-      width: 100%;
-      font-size: 12px;
     }
   }
 `
@@ -504,7 +472,6 @@ export const FlipButton = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   transition: background-color .3s, color .3s;
-  /* letter-spacing: -.5px; */
 
   @media screen and (max-width: ${Theme.breakpoints.max.sm}) {
     font-size: 15px;
