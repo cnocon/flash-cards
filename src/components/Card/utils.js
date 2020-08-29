@@ -71,10 +71,8 @@ const imgClickHandler = e => {
   if (document.querySelector('.overlay')) {
     document.querySelector('.overlay').remove();
     document.querySelector('.lightbox').classList.remove('lightbox')
-    // document.querySelector('html').style.overflow = 'hidden';
     e.target.style = {};
   } else {
-    // document.querySelector('html').style.overflow = 'visible';
     const div = document.createElement('div');
     div.classList.add('overlay');
     e.target.parentNode.classList.add('lightbox');
@@ -83,11 +81,14 @@ const imgClickHandler = e => {
 };
 
 export const generateMedia = media => {
+  console.log(media.hasOwnProperty('height'));
   const styles = media.hasOwnProperty('height') ? { maxHeight: `${media.height}px` } : {};
   switch (media.type) {
     case 'image':
       return (
-        <div className="img-container-outer" key={media.url} onClick={imgClickHandler}>
+        // onClick={imgClickHandler}
+        // re-add above line to img-container-outer if we want overlays back
+        <div className="img-container-outer" key={media.url}>
           <div className='img-container'key={media.url}>
             <img 
               src={media.url}

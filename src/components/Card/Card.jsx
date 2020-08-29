@@ -31,7 +31,7 @@ const Card = props => {
       <section className='section-inner'>
         <div className='prompt'>
           { ReactHtmlParser(activeSide === 'front' ? prompt : answer) }
-          { media.length ? <div className="media">{ media }</div> : null }
+          { media.length ? <div className="media">{media}</div> : null }
         </div>
       </section>
 

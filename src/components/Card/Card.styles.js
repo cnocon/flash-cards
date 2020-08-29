@@ -3,14 +3,12 @@ import Theme from '../../Theme';
 import styled from "@emotion/styled"
 
 export const Card = styled.div`
-  display: none;
-  width: 100%;
-  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  padding:0;
   line-height: ${Theme.fonts.sizes.lineHeights.sm};
   border-bottom-width: 2px;
   border-radius: 4px;
-  padding: 0 ${Theme.spacing.default};
-  margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
               0 2px 2px rgba(0,0,0,0.11), 
@@ -26,30 +24,22 @@ export const Card = styled.div`
     transform: translate(-50%, 0);
   }
   
-  
-  &.current { 
-    display: flex;
-    flex-direction: column;
-  }
-
+  &:not(.current) { display: none; }
 
   header {
-    margin: 0 -17px;
+    margin: 0 -1px;
+    padding: 20px;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
-    padding: 0;
     background-color: ${Theme.colors.default.darkest};
 
     .subheader {
       display: flex;
       flex-direction: row;
       flex-basis: auto;
-      max-width: 100%;
-      padding: 22px 20px;
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      /* height: 100%; */
 
       @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
         padding: 20px 10px;
@@ -62,7 +52,6 @@ export const Card = styled.div`
         align-self: center;
         justify-content: center;
         justify-items: center;
-        /* height: 100%; */
 
         @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
           i {display: none;}
@@ -131,170 +120,156 @@ export const Card = styled.div`
     }
   }
 
-  div:not(.media) a,
-  div:not(.media) p a {
-    color: ${Theme.colors.default.base};
-    background-image: linear-gradient(90deg, 
-      ${Theme.colors.accents.vivid.red} 5%,
-      ${Theme.colors.accents.vivid.yellow} 20%, 
-      ${Theme.colors.accents.vivid.green} 40%, 
-      ${Theme.colors.accents.vivid.green} 50%, 
-      ${Theme.colors.accents.text.blue} 65%,
-      ${Theme.colors.accents.vivid.blue} 80%,
-      ${Theme.colors.accents.vivid.purple} 100%);
-    background-size: 100% 2px;
-    padding-bottom: .75px;
-    font-weight: 600;
-    background-position: bottom;
-    background-repeat: no-repeat; 
-    transition: background-image .4s;
-
-    &:hover {
-      background-image: linear-gradient(225deg, 
-      ${Theme.colors.accents.green} 0, 
-      ${Theme.colors.accents.blue} 25%, 
-      ${Theme.colors.accents.purple} 50%,
-      ${Theme.colors.accents.vivid.red} 70%,
-      ${Theme.colors.accents.background.yellow} 85%,
-      ${Theme.colors.accents.yellow} 100%);
-    }
-  }
-
-  pre:not(.prettyprint) {
-    display: inline-block;
-    line-height: inherit;
-    background-color: ${Theme.colors.grays.background};
-    padding: 1px 6px;
-    margin: 0;
-    text-align: left;
-    font-weight: 400;
-    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
-  }
-
-  pre.prettyprint {
-    text-align: left;
-    border-radius: 4px;
-    padding: 20px;
-    font-size: 15px;
-    text-align: left;
-    line-height: 24px;
-    font-weight: 400;
-    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
-  
-    code,
-    span {
-      padding: 0;
-      background-color: inherit;
-      font-size: inherit;
-      text-align: inherit;
-      line-height: inherit;
-      font-weight: inherit;
-      font-family: inherit;
-    }
-  }
-
-  code,
-  pre:not(.prettyprint) {
-    display: inline-block;
-    padding: 0 3px;
-    margin: 0 1px;
-    line-height: 1.25;
-    font-weight: 400;
-    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
-    background-color: ${Theme.colors.codeBg};
-    border-radius: 4px;
-
-    pre & {
-      background-color: inherit;
-      padding: 0;
-    }
-  }
-
   .section-inner {
-    overflow-y: auto;
     padding: 20px;
-    /* min-height: 300px; */
-    /* height: 50vh; */
-    /* min-height: 100%; */
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    /* margin-left: -16px; */
-    /* margin-right: -16px; */
-
-    @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-      min-height: 450px;
-    }
-
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-    }
-
-    &::-webkit-scrollbar:vertical {
-        width: 11px;
-    }
-
-    &::-webkit-scrollbar:horizontal {
-        height: 11px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-         /* should match background, can't be transparent */
-        border: 2px solid ${Theme.colors.accents.purple};
-        background-color: rgba(0, 0, 0, .5);
-    }
-
-    .gist-meta,
-    .gist-meta a {font-size: 13px; background-image: none;}
+    justify-content: center;
+    max-height: 400px;
+    max-width: 400px;
+    height: 300px;
+    width: 400px;
+    overflow: auto;
 
     .prompt { 
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 0 0 0 20px;
-      margin: auto;
-      align-items: center;
+      height: auto;
+      max-height: 100%;
+      height: 100vh;
+      max-height: 100%;
+      height: 100vh;
+      align-self: center;
+      justify-self: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &::-webkit-scrollbar { -webkit-appearance: none; }
+      &::-webkit-scrollbar:vertical { width: 11px; }
+      &::-webkit-scrollbar:horizontal { height: 11px; }
+      &::-webkit-scrollbar-thumb {
+        /* should match background, can't be transparent */
+        border: 2px solid ${Theme.colors.accents.royalBlue};
+        background-color: ${Theme.colors.accents.vivid.purple};
+        border-radius: 8px;
+      }
 
       .media {
-        /* max-width: 100%;  */
-        /* overflow: auto; */
+        position: relative;
+        bottom: 0;
+
+        .gist-meta,
+        .gist-meta a {
+          font-size: 13px; 
+          background-image: none;
+        }
 
         pre.prettyprint {
+          text-align: left;
+          border-radius: 4px;
+          padding: 20px;
+          font-size: 15px;
+          text-align: left;
+          line-height: 24px;
+          font-weight: 400;
+          font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
           width: 100%; 
           background-color: ${Theme.colors.default.darkest};
+        
+          code,
+          span {
+            padding: 0;
+            background-color: inherit;
+            font-size: inherit;
+            text-align: inherit;
+            line-height: inherit;
+            font-weight: inherit;
+            font-family: inherit;
+          }
+        }
+
+
+        .img-container-outer {
+          text-align: center;
+          margin: 20px auto;
+          max-width: 100%;
+          height: auto;
+
+          .img-container img {
+            display: block;
+            max-width: 100%;
+          }
+
+          p.image-note {
+            display: block;
+            text-align: center;
+            width: 100%;
+            font-size: 12px;
+          }
+        }
+      }
+
+      div:not(.media) {
+        a,
+        p a {
+          color: ${Theme.colors.default.base};
+          background-image: linear-gradient(90deg, 
+            ${Theme.colors.accents.vivid.red} 5%,
+            ${Theme.colors.accents.vivid.yellow} 20%, 
+            ${Theme.colors.accents.vivid.green} 40%, 
+            ${Theme.colors.accents.vivid.green} 50%, 
+            ${Theme.colors.accents.text.blue} 65%,
+            ${Theme.colors.accents.vivid.blue} 80%,
+            ${Theme.colors.accents.vivid.purple} 100%);
+          background-size: 100% 2px;
+          padding-bottom: .75px;
+          font-weight: 600;
+          background-position: bottom;
+          background-repeat: no-repeat; 
+          transition: background-image .4s;
+
+          &:hover {
+            background-image: linear-gradient(225deg, 
+            ${Theme.colors.accents.green} 0, 
+            ${Theme.colors.accents.blue} 25%, 
+            ${Theme.colors.accents.purple} 50%,
+            ${Theme.colors.accents.vivid.red} 70%,
+            ${Theme.colors.accents.background.yellow} 85%,
+            ${Theme.colors.accents.yellow} 100%);
+          }
         }
       }
 
       p:not(.image-note) {
         text-align: left;
         align-self: flex-start;
-        
-        @media screen and (min-width: 900px) {
-          font-size: 24px; 
-          line-height: 32px; 
-          font-weight: 400;
-        }
+        font-size: 16px; 
+        line-height: 22px; 
+        font-weight: 400;
+      }
 
-        &:first-of-type {
+        p:not(.image-note):first-of-type {
           text-align: center;
           align-self: center;
-          font-weight: 600;
-          font-size: 24px; 
-          line-height: 28px;
+          font-weight: 900;
+          font-size: 16px; 
+          line-height: 22px;
+
+          @media screen and (min-width: ${Theme.breakpoints.min.lg}) {
+            font-size: 20px;
+            line-height: 26px;
+          }
         }
       }
 
       ul, ol {
         text-align: left; 
         list-style-position: outside; 
-        padding-left: 0;
+        padding: 10px 15px 15px 30px;
+        margin: 0 auto;
       }
 
       p:not(.image-note), 
-      div, 
-      td, 
-      th {
+      div {
         font-family: ${Theme.fonts.headings.family};
         font-size: 18px;
         line-height: 26px;
@@ -319,128 +294,81 @@ export const Card = styled.div`
       }
 
       p {
-        margin: 0 0 15px;
+        margin: 0;
         font-size: ${Theme.fonts.sizes.default};
         line-height: ${Theme.fonts.sizes.lineHeights.default};
         color: ${Theme.colors.default.base};
 
         &:first-of-type:not(.image-note) {
-          margin: 0 0 20px;
+          margin: 0 0 15px;
           text-align: center;
-          font-weight: 900;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 26px;
         }
       }
 
-      strong, b, em {
-        font-weight: 700;
-      }
-
-      ol,
-      ul {
-        margin: 15px auto 20px;
-        padding-left: 0;
-      }
+      strong, b, em {font-weight: 700;}
     }
   }
 
   footer {
-    padding: 13px 18px;
+    padding: 10px 16px;
     border-top: 2px solid ${Theme.colors.default.darkest};
-    margin: 0 -16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .overlay {
-    display: block;
-    position: absolute;
-    top: calc(50% + 80px);
-    left: 50%;
-    content: '';
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    transform: translate(-50%,-50%);
-    background-color: hsl(0deg 0% 0% / 88%);
-
-    @media screen and (min-width: ${Theme.breakpoints.min.lg}) {
-      top: 0;
-      left: 0;
-      transform: none; 
-    }
+  header,
+  .section-inner,
+  footer {
+    margin: 0;
+    max-width: 100%;
   }
 
-  .img-container-outer {
-    text-align: center;
-    margin: 20px auto;
-    max-width: 100%;
-    height: auto;
+  pre:not(.prettyprint) {
+    display: inline-block;
+    line-height: inherit;
+    background-color: ${Theme.colors.grays.background};
+    padding: 1px 6px;
+    margin: 0;
+    text-align: left;
+    font-weight: 400;
+    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
+  }
 
-    .img-container {
-      cursor: pointer;
-    
-      p.image-note {
-        display: block;
-        text-align: center;
-        width: 100%;
-        font-size: 12px;
-      }
+  p code,
+  li code,
+  pre:not(.prettyprint) {
+    display: inline-block;
+    padding: 0 3px;
+    margin: 0 1px;
+    line-height: 1.25;
+    font-weight: 400;
+    font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
+    background-color: ${Theme.colors.codeBg};
+    border-radius: 4px;
+  }
 
-      &.lightbox {  
-        display: block;
-        position: absolute;
-        z-index: 9999999;
-        overflow: auto;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-
-        @media screen and (max-width: ${Theme.breakpoints.max.lg}) {
-          /* Always show scrollbars */
-          &::-webkit-scrollbar {-webkit-appearance: none;}
-          &::-webkit-scrollbar:vertical {width: 11px;}
-          &::-webkit-scrollbar:horizontal {height: 11px;}
-
-          &::-webkit-scrollbar-thumb {
-            border-radius: 8px;
-            border: 2px solid rgba(0, 0, 0, .5);
-            background-color: ${Theme.colors.accents.vivid.purple};
-          }
-        }
-
-
-        img {
-          position: absolute;
-          z-index: 99999;
-          top: 50%;
-          left: 0;
-          max-width: 800px;
-          height: auto;
-          min-width: 100%;
-          display: block;
-          transform: translateY(calc(-50% + 80px));
-        }
-      }
-    }
+  .prettyprint code {
+    background-color: inherit;
+    padding: 0;
   }
 `
 
 export const FooterButton = styled.button`
   background-color: #fff;
   color: ${Theme.colors.default.base};
-  font-size: 18px;
-  padding: 5px 10px;
-  margin: 0 10px;
-  width: 90px;
-  height: 40px;
+  font-size: 16px;
+  padding: 4px 16px;
+  margin: 0;
   border-radius: 4px;
   border: 0;
+  text-transform: uppercase;
   font-weight: 900;
   font-family: ${Theme.fonts.accent.family};
   cursor: pointer;
-  text-transform: uppercase;
   transition: transform .3s;
 
   @media screen and (max-width: ${Theme.breakpoints.max.sm}) {
