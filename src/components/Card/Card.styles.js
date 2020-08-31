@@ -172,7 +172,7 @@ export const Card = styled.div`
         width: 100%; 
 
         pre.prettyprint {
-          width: 100%; 
+          max-width: 100%; 
           background-color: ${Theme.colors.default.darkest};
         }
       }
@@ -194,12 +194,6 @@ export const Card = styled.div`
           font-size: 24px; 
           line-height: 28px;
         }
-      }
-
-      ul, ol {
-        text-align: left; 
-        list-style-position: outside; 
-        padding-left: 0;
       }
 
       p:not(.image-note), 
@@ -248,7 +242,9 @@ export const Card = styled.div`
 
       ol,
       ul {
-        margin: 15px auto 20px;
+        text-align: left; 
+        list-style-position: outside; 
+        margin: 15px 40px 20px;
         padding-left: 0;
       }
     }

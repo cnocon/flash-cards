@@ -7,16 +7,16 @@ export const level = difficulty => {
   if (difficulty <= 3) {
     return {
       text: 'Beginner',
-      tagClass: 'fa-tachometer-slowest'
+      tagClass: 'fa-tachometer-slowest green'
     }
   } else if (difficulty > 7) {
     return {
-      tagClass: 'fa-tachometer-fastest', 
+      tagClass: 'fa-tachometer-fastest red', 
       text: 'Expert'
     } 
   }
   return {
-    tagClass: 'fa-tachometer-average',
+    tagClass: 'fa-tachometer-average orange',
     text: 'Mid-Level'
   } 
 }
@@ -66,15 +66,11 @@ const Snippet = ({item}) => {
 }
 
 const imgClickHandler = e => {
-  const img = e.target.querySelector('img');
-  console.log(e.target);
   if (document.querySelector('.overlay')) {
     document.querySelector('.overlay').remove();
     document.querySelector('.lightbox').classList.remove('lightbox')
-    // document.querySelector('html').style.overflow = 'hidden';
     e.target.style = {};
   } else {
-    // document.querySelector('html').style.overflow = 'visible';
     const div = document.createElement('div');
     div.classList.add('overlay');
     e.target.parentNode.classList.add('lightbox');
@@ -101,7 +97,7 @@ export const generateMedia = media => {
       return <Gist gist={media.gist} key={media.id}/>;
     case 'snippet':
       return <Snippet item={media} key={Math.random()} />;
-    default:
+    default:  
       // do nothing
   }
 }

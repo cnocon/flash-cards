@@ -34,8 +34,6 @@ const Deck = () => {
   }
 
   useEffect(() => {
-    // setQuestionCount(Object.values(CardsContext.cards).map(c => c.questions).flat().length)
-    
     CardsContext.getCards();
     CardsContext.getCategories();
   }, [activeCategorySlug, activeIndex]);
