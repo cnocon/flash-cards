@@ -5,7 +5,7 @@ import * as Styled from './Card.styles'
 
 const Card = props => {
   const { difficulty, tags, prompt, prompt_media, answer_media, answer } = props.data
-  const { isActive, navClickHandler, position } = props;
+  const { isActive, navClickHandler, position, questionCount } = props;
   const [activeSide, setActiveSide] = useState('front')
   
   const levelData = level(difficulty)
@@ -19,7 +19,7 @@ const Card = props => {
       <header>
         <div className='subheader'>
           <div><span className="level tag"><i className={`far ${levelData.tagClass}`}></i>&nbsp;&nbsp;{levelData.text}</span></div>
-          <div><h3>{activeSide === 'front' ? `Question #${position + 1}` : `Answer #${position + 1}`}</h3></div>
+          <div><h3>{activeSide === 'front' ? `Question ${position + 1}/${questionCount}` : `Answer ${position + 1}/${questionCount}`}</h3></div>
           <div>
             {tags && tags.length ? tags.map((tag, i) => (
               <span className={`category tag`} key={`${i}-${tag}`}>{tag}&nbsp;<i className={`fad fa-tags ${categoryClass}`}></i></span>

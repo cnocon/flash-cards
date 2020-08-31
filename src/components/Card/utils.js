@@ -25,10 +25,10 @@ export const getCategoryClass = category => {
   const yellowTags = ['Performance']
   const purpleTags = ['Gatsby']
   const royalBlueTags = ['React']
-  const blueTags = ['JavaScript']
+  const blueTags = ['JavaScript', 'HTML5']
   const greenTags = ['Node']
   const redTags = ['CSS']
-  const orangeTags = ['Git']
+  const orangeTags = ['Git', 'Accessibility']
 
   if (yellowTags.includes(category)) {
     return 'yellow'

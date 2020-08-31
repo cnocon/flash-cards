@@ -5,13 +5,19 @@ import * as Styled from './Deck.styles'
 
 const Deck = () => {
   const CardsContext = useContext(cardsContext);
+  
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeCategoryId, setActiveCategoryId] = useState('');
+  const [questionCount, setQuestionCount] = useState(28);
   const [activeCategorySlug, setActiveCategorySlug] = useState('all');
 
   const handleCategoryClick = categorySlug => {
     // Set active index back to 0 since we're switching categories
+    const newQuestionCount = categorySlug === 'all' 
+      ? Object.values(CardsContext.cards).map(c => c.questions).flat().length 
+      : CardsContext.cards[categorySlug].questions.length;
+    
     setActiveIndex(0)
+    setQuestionCount(newQuestionCount)
     setActiveCategorySlug(categorySlug)
   }
 
@@ -28,9 +34,10 @@ const Deck = () => {
   }
 
   useEffect(() => {
+    // setQuestionCount(Object.values(CardsContext.cards).map(c => c.questions).flat().length)
+    
     CardsContext.getCards();
     CardsContext.getCategories();
-    CardsContext.getActiveCards(activeCategoryId);
   }, [activeCategorySlug, activeIndex]);
   
   return (
@@ -45,7 +52,7 @@ const Deck = () => {
               .map((fullCategory, i) => {
                 if (!fullCategory) {return null}
                 return (
-                  <a className={fullCategory._id == activeCategoryId ? 'active' : ''} 
+                  <a className={fullCategory.slug === activeCategorySlug ? 'active' : ''} 
                     onClick={() => handleCategoryClick(fullCategory.slug) }
                     key={`${fullCategory._id}-${i}`}>
                     {fullCategory.name}
@@ -68,7 +75,8 @@ const Deck = () => {
                 key={`${i}-${question._id}`}
                 position={i}
                 isActive={activeIndex === i}
-                navClickHandler={() => handleNavClick} 
+                questionCount={questionCount}
+                navClickHandler={() => handleNavClick}
               />
             )
           })
@@ -81,6 +89,7 @@ const Deck = () => {
               key={`${i}-${question._id}`}
               position={i}
               isActive={activeIndex === i}
+              questionCount={questionCount}
               navClickHandler={() => handleNavClick} 
             />
           )

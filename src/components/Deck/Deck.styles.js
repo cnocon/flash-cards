@@ -47,7 +47,7 @@ export const AppHeading = styled.h1`
   padding-bottom: 30px;
   text-transform: uppercase;
   font-family: ${Theme.fonts.accent.family};
-  font-size: 90px;
+  font-size: 80px;
   line-height: 1.25;
   letter-spacing: 1px;
   width: 100%;
