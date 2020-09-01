@@ -16,7 +16,7 @@ const Card = props => {
   
   return (
     <Styled.Card className={isActive ? `${activeSide} current` : `${activeSide}`}>
-      <header>
+      <header className={`${categoryClass}`}>
         <div className='subheader'>
           <div><span className="level tag"><i className={`far ${levelData.tagClass}`}></i>&nbsp;&nbsp;{levelData.text}</span></div>
           <div><h3>{activeSide === 'front' ? `Question ${position + 1}/${questionCount}` : `Answer ${position + 1}/${questionCount}`}</h3></div>

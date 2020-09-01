@@ -7,28 +7,28 @@ export const level = difficulty => {
   if (difficulty <= 3) {
     return {
       text: 'Beginner',
-      tagClass: 'fa-tachometer-slowest green'
+      tagClass: 'fa-tachometer-slowest'
     }
   } else if (difficulty > 7) {
     return {
-      tagClass: 'fa-tachometer-fastest red', 
+      tagClass: 'fa-tachometer-fastest', 
       text: 'Expert'
     } 
   }
   return {
-    tagClass: 'fa-tachometer-average orange',
+    tagClass: 'fa-tachometer-average',
     text: 'Mid-Level'
   } 
 }
 
 export const getCategoryClass = category => {
-  const yellowTags = ['Performance']
+  const yellowTags = ['Performance', 'Git']
   const purpleTags = ['Gatsby']
   const royalBlueTags = ['React']
-  const blueTags = ['JavaScript', 'HTML5']
-  const greenTags = ['Node']
+  const blueTags = ['JavaScript']
+  const greenTags = ['Node', 'HTML5']
   const redTags = ['CSS']
-  const orangeTags = ['Git', 'Accessibility']
+  const orangeTags = ['Accessibility']
 
   if (yellowTags.includes(category)) {
     return 'yellow'

@@ -8,6 +8,18 @@ const Deck = () => {
   
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeCategorySlug, setActiveCategorySlug] = useState('all');
+  const colors = {
+    all: 'blue',
+    accessibility: 'orange',
+    css: 'red',
+    gatsby: 'purple',
+    git: 'yellow',
+    html5: 'green',
+    javascript: 'blue',
+    node: 'green',
+    performance: 'yellow',
+    react: 'royal-blue'
+  }
 
   const handleCategoryClick = categorySlug => {
     // Set active index back to 0 since we're switching categories
@@ -37,13 +49,13 @@ const Deck = () => {
       <Styled.AppHeader>
         <Styled.AppHeading>Front End Dev Flash Cards</Styled.AppHeading>
         <Styled.CategoriesNav>
-          <a onClick={() => handleCategoryClick('all') } key="all" className={activeCategorySlug === 'all' ? 'active' : ''}>All</a>
+          <a onClick={() => handleCategoryClick('all') } key="all" className={activeCategorySlug === 'all' ? 'white active' : ''}>All</a>
           
           { CardsContext.categories.sort((a, b) => a < b ? -1 : 1)
               .map((fullCategory, i) => {
                 if (!fullCategory) {return null}
                 return (
-                  <a className={fullCategory.slug === activeCategorySlug ? 'active' : ''} 
+                  <a className={fullCategory.slug === activeCategorySlug ? `${colors[activeCategorySlug]} active` : ''} 
                     onClick={() => handleCategoryClick(fullCategory.slug) }
                     key={`${fullCategory._id}-${i}`}>
                     {fullCategory.name}

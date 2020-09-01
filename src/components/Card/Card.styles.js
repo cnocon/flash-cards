@@ -265,6 +265,41 @@ export const Card = styled.div`
     border-top-left-radius: 4px;
     padding: 0;
     background-color: ${Theme.colors.default.darkest};
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+
+    &.white {
+      color: #fff;
+    }
+
+    &.blue {
+      border-bottom-color: ${Theme.colors.accents.vivid.blue};
+    }
+
+    &.red {
+      border-bottom-color: ${Theme.colors.accents.vivid.red};
+    }
+  
+    &.green {
+      border-bottom-color: ${Theme.colors.accents.green};
+    }
+  
+    &.yellow {
+      border-bottom-color: ${Theme.colors.accents.yellow};
+    }
+  
+    &.purple {
+      border-bottom-color: ${Theme.colors.accents.purple};
+    }
+
+    &.royal-blue {
+      border-bottom-color: ${Theme.colors.accents.royalBlue};
+    }
+  
+    &.orange {
+      border-bottom-color: ${Theme.colors.accents.orange};
+    }
+  
 
     .subheader {
       display: flex;
@@ -358,7 +393,7 @@ export const Card = styled.div`
   }
 
   .blue {
-    color: ${Theme.colors.accents.blue};
+    color: ${Theme.colors.accents.vivid.blue};
   }
 
   .red {
@@ -370,7 +405,7 @@ export const Card = styled.div`
   }
   
   .yellow {
-    color: ${Theme.colors.accents.background.yellow};
+    color: ${Theme.colors.accents.yellow};
   }
   
   .purple {

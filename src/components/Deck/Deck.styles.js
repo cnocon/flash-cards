@@ -15,22 +15,60 @@ export const CategoriesNav = styled.nav`
 
   a {
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     margin: 6px 10px;
     padding: 2px 5px;
+    color: ${Theme.colors.default.base};
     cursor: pointer;
-
-    &.active {
-      background-color: ${Theme.colors.default.base};
-      color: #fff;
-      border-radius: 4px;
-    }
+    transition: transform .4s;
+    border: 2px solid ${Theme.colors.default.darkest};
+    border-radius: 4px;
     
     &:hover,
     &:focus {
-      background-color: ${Theme.colors.default.base};
+      background-color: ${Theme.colors.default.darkest};
+      transform: scale(1.1);
       color: #fff;
       border-radius: 4px;
+    }
+
+    &.active {
+      transform: scale(1.2) translateY(-1px);
+      background-color: ${Theme.colors.default.darkest};
+      color: #345;
+      border-radius: 4px;
+
+      &.white {
+        color: #fff;
+      }
+
+      &.blue {
+        color: ${Theme.colors.accents.vivid.blue};
+      }
+
+      &.red {
+        color: ${Theme.colors.accents.vivid.red};
+      }
+    
+      &.green {
+        color: ${Theme.colors.accents.green};
+      }
+    
+      &.yellow {
+        color: ${Theme.colors.accents.yellow};
+      }
+    
+      &.purple {
+        color: ${Theme.colors.accents.purple};
+      }
+
+      &.royal-blue {
+        color: ${Theme.colors.accents.royalBlue};
+      }
+    
+      &.orange {
+        color: ${Theme.colors.accents.orange};
+      }
     }
   }
 `

@@ -45,7 +45,7 @@ module.exports = {
       blue: 'hsl(197,100%,86%)',
       yellow: 'hsl(58, 100%, 65%)',
       purple: 'hsl(240, 100%, 87%)',
-      royalBlue: 'hsl(224, 96%, 75%)',
+      royalBlue: 'hsl(212, 96%, 75%)',
       orange: 'hsl(39, 100%, 70%)',
       dark: {
         green: 'hsl(175, 85%, 47%)',
@@ -68,7 +68,7 @@ module.exports = {
         purple: 'hsl(240, 100%, 96%)',
         red: 'hsl(355, 100%, 95%)',
         orange: 'hsl(39, 100%, 85%)',
-        royalBlue: 'hsl(224,100%,85%)',
+        royalBlue: 'hsl(212,65%,85%)',
       },
       text: {
         red: 'hsl(355, 81%, 80%)',
