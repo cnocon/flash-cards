@@ -179,7 +179,7 @@ export const Card = styled.div`
       justify-content: flex-start;
       padding: 0 20px;
       margin: auto;
-      align-items: flex-start;
+      align-items: center;
       max-width: 100%;
       box-sizing: border-box;
 
@@ -560,7 +560,6 @@ export const FlipButton = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   transition: background-color .3s, color .3s;
-  /* letter-spacing: -.5px; */
 
   @media screen and (max-width: ${Theme.breakpoints.max.sm}) {
     font-size: 15px;
