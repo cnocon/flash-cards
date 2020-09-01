@@ -4,13 +4,14 @@ import styled from "@emotion/styled"
 
 export const Card = styled.div`
   display: none;
-  width: 100%;
-  max-width: 650px;
+  flex-direction: column;
+  width: 95%;
+  max-width: 95%;
+  padding: 0;
+  margin: 20px auto;
   line-height: ${Theme.fonts.sizes.lineHeights.sm};
   border-bottom-width: 2px;
   border-radius: 4px;
-  padding: 0 ${Theme.spacing.default};
-  margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
               0 2px 2px rgba(0,0,0,0.11), 
@@ -19,8 +20,15 @@ export const Card = styled.div`
               0 16px 16px rgba(0,0,0,0.11), 
               0 32px 32px rgba(0,0,0,0.11);
 
+  @media screen and (min-width: ${Theme.breakpoints.min.md}) {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 0 ${Theme.spacing.default};
+  }
+
   @media screen and (min-width: 1000px) {
     position: absolute;
+    margin: 0 auto;
     left: 50%;
     /* top: 52.5vh; */
     top: 57vh;
@@ -28,10 +36,7 @@ export const Card = styled.div`
     max-width: 850px;
   }
   
-  &.current { 
-    display: flex;
-    flex-direction: column;
-  }
+  &.current { display: flex; }
 
   div:not(.media) a,
   div:not(.media) p a {
@@ -113,20 +118,23 @@ export const Card = styled.div`
   }
 
   .section-inner {
+    max-width: 100%;
     overflow-y: scroll;
-    padding: 20px 31px 20px 20px;
-    margin-right: -11px;
-    min-height: 300px;
-    height: 50vh;
     min-height: 100%;
+    min-height: 400px;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-left: -16px;
-    margin-right: -16px;
+    padding: 20px 0;
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
       min-height: 450px;
+
+      padding: 20px 31px 20px 20px;
+
+      margin-left: -16px;
+      margin-right: -16px;
     }
 
     &::-webkit-scrollbar {
@@ -145,6 +153,10 @@ export const Card = styled.div`
         border-radius: 8px;
         border: 2px solid #fff; /* should match background, can't be transparent */
         background-color: rgba(0, 0, 0, .5);
+    }
+
+    .gist-file span {
+      font-family: 'Courier Prime', 'Fira Code', 'PT Mono', Monaco, Menlo, monospace;
     }
 
     .gist-meta,
@@ -251,22 +263,32 @@ export const Card = styled.div`
   }
 
   footer {
+    max-width: 100%;
     padding: 13px 18px;
     border-top: 2px solid ${Theme.colors.default.darkest};
-    margin: 0 -16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (min-width: ${Theme.breakpoints.min.md}) {
+      margin: 0 -16px;
+    }
   }
 
   header {
-    margin: 0 -16px;
+    max-width: 100%;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
     padding: 0;
     background-color: ${Theme.colors.default.darkest};
     border-bottom-width: 5px;
     border-bottom-style: solid;
+
+    @media screen and (min-width: ${Theme.breakpoints.min.md}) {
+      margin: 0 -16px;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
 
     &.white {
       color: #fff;
