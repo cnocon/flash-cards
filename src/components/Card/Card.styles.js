@@ -180,6 +180,8 @@ export const Card = styled.div`
       padding: 0 20px;
       margin: auto;
       align-items: flex-start;
+      max-width: 100%;
+      box-sizing: border-box;
 
       .media {
         width: 100%; 
