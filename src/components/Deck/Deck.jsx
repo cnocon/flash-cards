@@ -7,17 +7,11 @@ const Deck = () => {
   const CardsContext = useContext(cardsContext);
   
   const [activeIndex, setActiveIndex] = useState(0);
-  const [questionCount, setQuestionCount] = useState(28);
   const [activeCategorySlug, setActiveCategorySlug] = useState('all');
 
   const handleCategoryClick = categorySlug => {
     // Set active index back to 0 since we're switching categories
-    const newQuestionCount = categorySlug === 'all' 
-      ? Object.values(CardsContext.cards).map(c => c.questions).flat().length 
-      : CardsContext.cards[categorySlug].questions.length;
-    
     setActiveIndex(0)
-    setQuestionCount(newQuestionCount)
     setActiveCategorySlug(categorySlug)
   }
 
@@ -40,7 +34,6 @@ const Deck = () => {
   
   return (
     <Styled.Deck>
-
       <Styled.AppHeader>
         <Styled.AppHeading>Front End Dev Flash Cards</Styled.AppHeading>
         <Styled.CategoriesNav>
@@ -73,7 +66,11 @@ const Deck = () => {
                 key={`${i}-${question._id}`}
                 position={i}
                 isActive={activeIndex === i}
-                questionCount={questionCount}
+                questionCount={(
+                  activeCategorySlug === 'all' 
+                  ? Object.values(CardsContext.cards).map(c => c.questions).flat().length
+                  : CardsContext.cards[activeCategorySlug].questions.length
+                )}
                 navClickHandler={() => handleNavClick}
               />
             )
@@ -87,7 +84,11 @@ const Deck = () => {
               key={`${i}-${question._id}`}
               position={i}
               isActive={activeIndex === i}
-              questionCount={questionCount}
+              questionCount={(
+                activeCategorySlug === 'all' 
+                ? Object.values(CardsContext.cards).map(c => c.questions).flat().length
+                : CardsContext.cards[activeCategorySlug].questions.length
+              )}
               navClickHandler={() => handleNavClick} 
             />
           )
