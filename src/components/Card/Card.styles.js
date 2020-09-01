@@ -118,12 +118,14 @@ export const Card = styled.div`
   }
 
   .section-inner {
+    display: block;
     max-width: 100%;
-    overflow-y: scroll;
+    overflow: auto;
     min-height: 100%;
-    min-height: 400px;
-    height: 50vh;
-    display: flex;
+    min-height: 50vh;
+    /* height: 50vh; */
+    
+    /* display: flex; */
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
