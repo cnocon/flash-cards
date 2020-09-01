@@ -40,9 +40,14 @@ const Deck = () => {
   }
 
   useEffect(() => {
-    CardsContext.getCards();
-    CardsContext.getCategories();
-  }, [activeCategorySlug, activeIndex]);
+    if (!CardsContext.cards.length > 0) {
+      CardsContext.getCards();
+    }
+
+    if (!CardsContext.categories.length > 0) {
+      CardsContext.getCategories();
+    }
+  }, []);
   
   return (
     <Styled.Deck>
