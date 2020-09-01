@@ -118,23 +118,22 @@ export const Card = styled.div`
   }
 
   .section-inner {
-    display: block;
+    /* display: block; */
     max-width: 100%;
     overflow: auto;
-    min-height: 100%;
+    /* min-height: 100%; */
     min-height: 50vh;
     /* height: 50vh; */
     
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
       min-height: 450px;
-
+      max-height: 450px;
       padding: 20px 31px 20px 20px;
-
       margin-left: -16px;
       margin-right: -16px;
     }
@@ -177,10 +176,10 @@ export const Card = styled.div`
     .prompt { 
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 0 0 0 20px;
+      justify-content: flex-start;
+      padding: 0 20px;
       margin: auto;
-      align-items: center;
+      align-items: flex-start;
 
       .media {
         width: 100%; 
