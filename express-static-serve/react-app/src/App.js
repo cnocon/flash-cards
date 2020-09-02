@@ -32,17 +32,17 @@ export const App = () => {
               <Router>
                 <Styled.AppHeader className='rainbow-border'>
                   <Styled.MainNav>
-                    {authenticated ? <li><Link to='/logout' onClick={(e) => handleLogoutClick(e) }>Log Out</Link></li> : <li><Link to='/login'>Login</Link></li>}
-                    {authenticated ? <li><Link to='/profile'>Profile</Link></li> : <li><Link to='/register'>Register</Link></li>}
-                    <li><Link to='/'>Flash Cards</Link></li>
+                    {/* {authenticated ? <li><Link to='/logout' onClick={(e) => handleLogoutClick(e) }>Log Out</Link></li> : <li><Link to='/login'>Login</Link></li>}
+                    {authenticated ? <li><Link to='/profile'>Profile</Link></li> : <li><Link to='/register'>Register</Link></li>} */}
+                    <li><Link to='/'>Home</Link></li>
                   </Styled.MainNav>
                   <Styled.AppHeading>Front End Flash Cards</Styled.AppHeading>
                 </Styled.AppHeader>
                 <Styled.Content>
                 <Switch>
-                  <Route exact={true} path='/register'><Register /></Route>
+                  {/* <Route exact={true} path='/register'><Register /></Route>
                   <Route exact={true} path='/profile'><Profile/></Route>
-                  <Route exact={true} path='/login'><Login /></Route>
+                  <Route exact={true} path='/login'><Login /></Route> */}
                   <Route exact={true} path='/'><Deck /></Route>
                   <Route path="*"><NotFound /></Route>
                 </Switch>
