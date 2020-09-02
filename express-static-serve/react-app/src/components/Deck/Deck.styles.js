@@ -3,13 +3,17 @@ import styled from "@emotion/styled";
 import Theme from '../../Theme'
 
 export const Deck = styled.div`
-  position: relative;
+  position: static;
   width: 100%;
   display: block;
+  /* position: absolute; */
+  top: 50%;
+  left: 0;
+  height: calc(100% - 180px);
 
   .fa-spin {
     margin: 25vh auto 25vh;
-    color: ${Theme.colors.default.base};
+    color: ${Theme.colors.default.darkest};
     text-align: center;
     display: block;
   }
@@ -19,30 +23,33 @@ export const CategoriesNav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 
-  a {
+  button {
+    background-color: transparent;
+    outline: 0;
     display: inline-block;
-    font-size: 16px;
-    margin: 6px 10px;
+    font-size: 15px;
+    margin: 6px 5px;
     padding: 2px 5px;
     color: ${Theme.colors.default.base};
     cursor: pointer;
+    border: 0;
     transition: transform .4s;
-    border: 2px solid ${Theme.colors.default.darkest};
-    border-radius: 4px;
+    /* border: 2px solid ${Theme.colors.default.darkest}; */
+    /* border-radius: 4px; */
     
     &:hover,
     &:focus {
-      background-color: ${Theme.colors.default.darkest};
-      transform: scale(1.1);
+      background-color: ${Theme.colors.default.base};
       color: #fff;
       border-radius: 4px;
+      outline: 0;
     }
 
     &.active {
-      transform: scale(1.2) translateY(-1px);
-      background-color: ${Theme.colors.default.darkest};
-      color: #345;
+      background-color: ${Theme.colors.default.base};
+      color: #fff;
       border-radius: 4px;
 
       &.white {

@@ -1,12 +1,14 @@
 module.exports = {
   colors: {
     default: {
-      base: 'hsl(210, 25%, 27%)',
-      darker: 'hsl(210, 40%, 10%)',
-      darkest: 'hsl(210, 20%, 10%)',
-      lighter: 'hsl(210, 25%, 60%)',
-      light: 'hsl(210,70%,31%)',
-      mid: 'hsl(210,50%,15%)'
+      base: 'hsl(211, 25%, 24%)',
+      darker: 'hsl(211, 40%, 10%)',
+      darkest: 'hsl(211, 20%, 10%)',
+      lighter: 'hsl(211, 25%, 60%)',
+      light: 'hsl(211,70%,31%)',
+      mid: 'hsl(211,50%,15%)',
+      gray: 'hsl(211, 15%, 95%)',
+      lightGray: 'hsl(211, 30%, 96%)',
     },
     codeBg: 'hsl(240,16%,91%)',
     link: 'hsl(240,80%,50%)',
@@ -47,6 +49,24 @@ module.exports = {
       purple: 'hsl(240, 100%, 87%)',
       royalBlue: 'hsl(212, 96%, 75%)',
       orange: 'hsl(39, 100%, 70%)',
+      semiTransparent: {
+        red: 'hsla(355, 100%, 92%, .75)',
+        green: 'hsla(175, 100%, 65%, .75)',
+        blue: 'hsla(197,100%,86%, .75)',
+        yellow: 'hsla(58, 100%, 65%, .75)',
+        purple: 'hsla(240, 100%, 87%, .75)',
+        royalBlue: 'hsla(212, 96%, 75%, .75)',
+        orange: 'hsla(39, 100%, 70%, .75)',
+      },
+      transparent: {
+        red: 'hsla(355, 100%, 92%, .5)',
+        green: 'hsla(175, 100%, 65%, .5)',
+        blue: 'hsla(197,100%,86%, .5)',
+        yellow: 'hsla(58, 100%, 65%, .5)',
+        purple: 'hsla(240, 100%, 87%, .5)',
+        royalBlue: 'hsla(212, 96%, 75%, .5)',
+        orange: 'hsla(39, 100%, 70%, .5)',
+      },
       dark: {
         green: 'hsl(175, 85%, 47%)',
         yellow: 'hsl(58, 95%, 48%)',

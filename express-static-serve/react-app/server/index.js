@@ -46,9 +46,10 @@ app.post('/login', (req, res, next) => {
   if (email && password) {
     User.authenticate(email, password, function(error, user) {
       if (error || !user) {
-        const err = new Error('Wrong email or password.');
+        const msg = `Wrong email or password.`
+        const err = new Error();
         err.status = 401;
-        return next(err);
+        return res.redirect(`/login?error=${msg}`);
       } else {
         // req.session.userId = user._id;
         res.cookie('userId', user._id, { signed: true, httpOnly: false, expire: 360000 + Date.now() });
@@ -79,9 +80,10 @@ app.post('/register', (req, res, next) => {
   
   if (name && username && email && password && password_confirmation) {
     if (password !== password_confirmation) {
-      const err = new Error('Passwords must match.');
+      const msg = `Passwords must match.`;
+      const err = new Error(msg);
       err.status = 400;
-      return next(err);
+      return res.redirect(`/register?error=${msg}`);
     } else {
       const userData = {
         name: name,

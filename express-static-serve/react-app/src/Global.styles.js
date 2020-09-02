@@ -2,6 +2,7 @@ import { css } from '@emotion/core'
 import Theme from './Theme'
 
 export default {styles: css`
+  * {box-sizing: border-box;}
   html {
     font-size: 10px;
     height: 100%;
@@ -310,24 +311,31 @@ export default {styles: css`
     transition: background-image .4s;
   }
 
-  .rainbow-border-all {
-
+  .rainbow-border-transparent {
     background-image: linear-gradient(205deg, 
-    ${Theme.colors.accents.yellow} 10%,
-    ${Theme.colors.accents.green} 30%, 
-    ${Theme.colors.accents.green} 40%, 
-    ${Theme.colors.accents.blue} 52%, 
-    ${Theme.colors.accents.blue} 62%, 
-    ${Theme.colors.accents.purple} 70%,
-    ${Theme.colors.accents.red} 90%), 
-    linear-gradient(80deg, 
-    ${Theme.colors.accents.yellow} 10%,
-    ${Theme.colors.accents.green} 30%, 
-    ${Theme.colors.accents.green} 40%, 
-    ${Theme.colors.accents.blue} 52%, 
-    ${Theme.colors.accents.blue} 62%, 
-    ${Theme.colors.accents.purple} 70%,
-    ${Theme.colors.accents.red} 90%);
+    ${Theme.colors.accents.transparent.yellow} 10%,
+    ${Theme.colors.accents.transparent.green} 30%, 
+    ${Theme.colors.accents.transparent.green} 40%, 
+    ${Theme.colors.accents.transparent.blue} 52%, 
+    ${Theme.colors.accents.transparent.blue} 62%, 
+    ${Theme.colors.accents.transparent.purple} 70%,
+    ${Theme.colors.accents.transparent.red} 90%);
+    background-size: 100% 2px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transition: background-image .4s;
+  }
+
+
+  .rainbow-border-semi-transparent {
+    background-image: linear-gradient(205deg, 
+    ${Theme.colors.accents.semiTransparent.yellow} 10%,
+    ${Theme.colors.accents.semiTransparent.green} 30%, 
+    ${Theme.colors.accents.semiTransparent.green} 40%, 
+    ${Theme.colors.accents.semiTransparent.blue} 52%, 
+    ${Theme.colors.accents.semiTransparent.blue} 62%, 
+    ${Theme.colors.accents.semiTransparent.purple} 70%,
+    ${Theme.colors.accents.semiTransparent.red} 90%);
     background-size: 100% 2px;
     background-position: center bottom;
     background-repeat: no-repeat;

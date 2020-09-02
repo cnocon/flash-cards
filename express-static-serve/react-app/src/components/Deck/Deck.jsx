@@ -52,17 +52,17 @@ const Deck = () => {
     <Styled.Deck>
       <Styled.Header>
         <Styled.CategoriesNav>
-          <a onClick={() => handleCategoryClick('all') } key="all" className={activeCategorySlug === 'all' ? 'white active' : ''}>All</a>
+          <button onClick={() => handleCategoryClick('all') } key="all" className={activeCategorySlug === 'all' ? 'white active' : ''}>All</button>
           
           { CardsContext.categories.sort((a, b) => a < b ? -1 : 1)
               .map((fullCategory, i) => {
                 if (!fullCategory) {return null}
                 return (
-                  <a className={fullCategory.slug === activeCategorySlug ? `${colors[activeCategorySlug]} active` : ''} 
+                  <button className={fullCategory.slug === activeCategorySlug ? `${colors[activeCategorySlug]} active` : ''} 
                     onClick={() => handleCategoryClick(fullCategory.slug) }
                     key={`${fullCategory._id}-${i}`}>
                     {fullCategory.name}
-                  </a>
+                  </button>
                 )
             })
           }

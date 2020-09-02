@@ -35,7 +35,7 @@ const Card = props => {
         </div>
       </section>
 
-      <footer>
+      <footer className='rainbow-border-semi-transparent'>
         <Styled.FooterButton onClick={navClickHandler()} data-increment={-1}>
           <i className="far fa-arrow-left"></i>{`  `}Prev
         </Styled.FooterButton>

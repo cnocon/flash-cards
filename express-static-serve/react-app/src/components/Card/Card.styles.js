@@ -1,4 +1,4 @@
-import { css } from "@emotion/core"
+// import { css } from "@emotion/core"
 import Theme from '../../Theme';
 import styled from "@emotion/styled"
 
@@ -10,32 +10,22 @@ export const Card = styled.div`
   padding: 0;
   margin: 20px auto;
   line-height: ${Theme.fonts.sizes.lineHeights.sm};
-  border-bottom-width: 2px;
+  border: 1px solid ${Theme.colors.default.gray};
   border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
-              0 2px 2px rgba(0,0,0,0.11), 
-              0 4px 4px rgba(0,0,0,0.11), 
-              0 8px 8px rgba(0,0,0,0.11), 
-              0 16px 16px rgba(0,0,0,0.11), 
-              0 32px 32px rgba(0,0,0,0.11);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.075), 
+              0 2px 2px rgba(0,0,0,0.075), 
+              0 4px 4px rgba(0,0,0,0.075), 
+              0 8px 8px rgba(0,0,0,0.075), 
+              0 16px 16px rgba(0,0,0,0.075), 
+              0 32px 32px rgba(0,0,0,0.075);
 
   @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-    max-width: 650px;
-    margin: 20px auto;
-    padding: 0 ${Theme.spacing.default};
+    max-width: 500px;
+    margin: 40px auto 0;
+    /* padding: 0 ${Theme.spacing.default}; */
   }
 
-  @media screen and (min-width: 1000px) {
-    position: absolute;
-    margin: 0 auto;
-    left: 50%;
-    /* top: 52.5vh; */
-    top: 57vh;
-    transform: translate(-50%, -50%);
-    max-width: 850px;
-  }
-  
   &.current { display: flex; }
 
   div:not(.media) a,
@@ -122,20 +112,29 @@ export const Card = styled.div`
     max-width: 100%;
     overflow: auto;
     /* min-height: 100%; */
-    min-height: 50vh;
+    /* min-height: 50vh; */
     /* height: 50vh; */
     
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
+    min-height: 200px;
+    max-height: 200px;
+
+    @media screen and (min-width: ${Theme.breakpoints.min.xs}) {
+      height: 100%;
+      min-height: 300px;
+      max-height: 300px;
+      padding: 30px 20px;
+      /* margin-left: -16px;
+      margin-right: -16px; */
+    }
+
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-      min-height: 450px;
-      max-height: 450px;
-      padding: 20px 31px 20px 20px;
-      margin-left: -16px;
-      margin-right: -16px;
+      min-height: 400px;
+      max-height: 400px;
     }
 
     &::-webkit-scrollbar {
@@ -192,32 +191,34 @@ export const Card = styled.div`
         }
       }
 
-      p:not(.image-note) {
-        text-align: left;
-        align-self: flex-start;
-        
-        @media screen and (min-width: 900px) {
-          font-size: 24px; 
-          line-height: 32px; 
-          font-weight: 400;
-        }
+      p {
+        margin: 0 0 15px;
+        font-size: ${Theme.fonts.sizes.default};
+        line-height: ${Theme.fonts.sizes.lineHeights.default};
+        color: ${Theme.colors.default.base};
 
-        &:first-of-type {
-          text-align: center;
-          align-self: center;
-          font-weight: 600;
-          font-size: 24px; 
-          line-height: 28px;
+        &:not(.image-note) {
+          text-align: left;
+          align-self: flex-start;
+          font-size: 16px; 
+          line-height: 22px; 
+          font-weight: 400;
+
+          &:first-of-type {
+            text-align: center;
+            align-self: center;
+            font-weight: 600;
+            font-size: 18px; 
+            line-height: 24px;
+            margin: 0 0 20px;
+          }
         }
       }
 
-      p:not(.image-note), 
-      div, 
-      td, 
-      th {
+      div {
         font-family: ${Theme.fonts.headings.family};
         font-size: 18px;
-        line-height: 26px;
+        line-height: 24px;
 
         @media screen and (max-width: ${Theme.breakpoints.max.sm}) {
           font-size: 15px;
@@ -238,19 +239,6 @@ export const Card = styled.div`
         }
       }
 
-      p {
-        margin: 0 0 15px;
-        font-size: ${Theme.fonts.sizes.default};
-        line-height: ${Theme.fonts.sizes.lineHeights.default};
-        color: ${Theme.colors.default.base};
-
-        &:first-of-type:not(.image-note) {
-          margin: 0 0 20px;
-          text-align: center;
-          font-weight: 900;
-        }
-      }
-
       strong, b, em {
         font-weight: 900;
       }
@@ -268,13 +256,18 @@ export const Card = styled.div`
   footer {
     max-width: 100%;
     padding: 13px 18px;
-    border-top: 2px solid ${Theme.colors.default.darkest};
+    /* border-top: 2px solid ${Theme.colors.default.darkest}; */
+    background-color: ${Theme.colors.default.lightGray};
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-position: top;
+    background-size: 100% 3px;
+    padding-top: 17px;
+  
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-      margin: 0 -16px;
+      margin: 0;
     }
   }
 
@@ -283,12 +276,16 @@ export const Card = styled.div`
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
     padding: 0;
-    background-color: ${Theme.colors.default.darkest};
-    border-bottom-width: 5px;
+    /* background-color: #fff; */
+    background-size: 100% 5px;
+    padding-bottom: 5px;
+    /* border-top: 1px solid ${Theme.colors.default.gray}; */
+    background-color: ${Theme.colors.default.base};
+    border-bottom-width: 6px;
     border-bottom-style: solid;
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-      margin: 0 -16px;
+      margin: 0;
       padding-left: 18px;
       padding-right: 18px;
     }
@@ -310,7 +307,7 @@ export const Card = styled.div`
     }
   
     &.yellow {
-      border-bottom-color: ${Theme.colors.accents.yellow};
+      border-bottom-color: ${Theme.colors.accents.dark.yellow};
     }
   
     &.purple {
@@ -331,7 +328,7 @@ export const Card = styled.div`
       flex-direction: row;
       flex-basis: auto;
       max-width: 100%;
-      padding: 22px 20px;
+      padding: 22px 0;
       justify-content: space-between;
       align-items: center;
       text-align: center;
@@ -346,7 +343,7 @@ export const Card = styled.div`
         width: 33.333%;
         display: flex;
         align-self: center;
-        justify-content: center;
+        justify-content: space-between;
         justify-items: center;
         height: 100%;
 
@@ -359,12 +356,13 @@ export const Card = styled.div`
           line-height: 2.25rem;
 
           .level {
-            color: ${Theme.colors.grays.textOnDark};
+            color: #fff;            
             vertical-align: middle;
             line-height: 14px;
-            font-weight: 900;
+            font-weight: 400;
             font-family: ${Theme.fonts.headings.family};
             font-size: 14px;         
+            text-transform: uppercase;
 
             i {font-size: 16px; line-height: 14px; margin-left: 3px;}
           }
@@ -375,12 +373,13 @@ export const Card = styled.div`
           line-height: 2.25rem;
 
           .tag {
-            color: ${Theme.colors.grays.textOnDark};
+            color: #fff;
             vertical-align: middle;
             line-height: 14px;
-            font-weight: 900;
+            font-weight: 400;
             font-family: ${Theme.fonts.headings.family};
-            font-size: 14px;
+            font-size: 14px;         
+            text-transform: uppercase;
 
             @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
               font-size: 12px;
@@ -400,7 +399,8 @@ export const Card = styled.div`
           font-size: 14px;
           line-height: 22.5px;
           vertical-align: middle;
-          height: auto;color: #fff;
+          height: auto;
+          color: #fff;
         }
         
         h3 {
@@ -498,7 +498,7 @@ export const Card = styled.div`
       }
 
       img {
-        border: 1px solid #345;
+        border: 1px solid ${Theme.colors.default.base};
         height: auto;
         width: auto;
         max-width: 100%;
@@ -516,7 +516,7 @@ export const Card = styled.div`
 `
 
 export const FooterButton = styled.button`
-  background-color: #fff;
+  background-color: transparent;
   color: ${Theme.colors.default.base};
   font-size: 18px;
   padding: 5px 10px;
@@ -546,7 +546,7 @@ export const FooterButton = styled.button`
 `
 
 export const FlipButton = styled.button`
-  background-color: #fff;
+  background-color: transparent;
   border: 2px solid ${Theme.colors.default.darkest};
   color: ${Theme.colors.default.base};
   font-size: 18px;
