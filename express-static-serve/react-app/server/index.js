@@ -63,6 +63,7 @@ app.post('/login', (req, res, next) => {
   }
 });
 
+
 // app.get('/logout', (req, res, next) => {
 //   if (req.signedCookies.userId) {
 //     res.clearCookie('userId');
@@ -129,6 +130,9 @@ app.get('/profile', (req, res, next) => {
   }
 })
 
+app.get('/login', (req, res, next) => {
+  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+});
 
 
 app.use((req, res, next) => {
