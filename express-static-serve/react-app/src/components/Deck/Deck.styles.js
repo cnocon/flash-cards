@@ -10,13 +10,6 @@ export const Deck = styled.div`
   top: 50%;
   left: 0;
   height: calc(100% - 180px);
-
-  .fa-spin {
-    margin: 25vh auto 25vh;
-    color: ${Theme.colors.default.darkest};
-    text-align: center;
-    display: block;
-  }
 `
 
 export const CategoriesNav = styled.nav`
@@ -89,4 +82,28 @@ export const CategoriesNav = styled.nav`
 
 export const Header = styled.header`
   position: relative;
+`
+
+export const Loader = styled.div`
+  margin: 25vh auto 25vh;
+  text-align: center;
+
+  .fa-pulse {
+    margin-bottom: 30px;
+    color: ${Theme.colors.default.darkest};
+    text-align: center;
+    display: block;
+    font-size: 80px;
+  }
+
+  h5 {
+    font-size: 30px;
+    font-family: ${Theme.fonts.accent.family};
+    text-transform: uppercase;
+    font-weight: 200;
+    small {
+      display: block;
+      font-size: 18px;
+    }
+  }
 `

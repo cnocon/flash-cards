@@ -69,7 +69,8 @@ const Deck = () => {
         </Styled.CategoriesNav>
       </Styled.Header>
 
-      {CardsContext.cards.length === 0 ? <i className="fas fa-spinner fa-10x fa-spin"/> : null}
+      {CardsContext.cards.length === 0 ? <Styled.Loader><h5><i className="fad fa-spinner fa-10x fa-pulse"/>Loading flash cards<small>This takes a minute...</small></h5></Styled.Loader> : null}
+      
 
       { activeCategorySlug === 'all'
         ? Object.values(CardsContext.cards)
