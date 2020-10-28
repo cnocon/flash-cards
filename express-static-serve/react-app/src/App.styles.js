@@ -81,15 +81,13 @@ export const MainNav = styled.ul`
 
 export const AppHeader = styled.header`
   position: relative;
-  /* border-bottom: 2px solid ${Theme.colors.default.base}; */
   margin-bottom: 30px;
-  /* background-color: ${Theme.colors.default.lightGray}; */
-  background-color: ${Theme.colors.default.darkest};
   box-shadow: 0 1px 3px -1px rgba(0,0,0,0.3);
-  background-size: 100% 3px;
+  background-size: 100% 4px;
   
   @media screen and (min-width: ${Theme.breakpoints.min.lg}) {
-    height: 180px;
+    /* height: 180px; height without nav */
+    height: 145px; /* height with nav*/
   }
   
 `
@@ -101,8 +99,7 @@ export const AppHeading = styled.h1`
   margin: 15px auto 0;
   padding-bottom: 30px;
   text-transform: uppercase;
-  /* color: ${Theme.colors.default.darkest}; */
-  color: #fff;
+  color: ${Theme.colors.default.base};
   font-family: ${Theme.fonts.accent.family};
   font-size: 80px;
   line-height: 1.25;
@@ -117,7 +114,7 @@ export const AppHeading = styled.h1`
 
 export const Content = styled.div`
   /* position: absolute; */
-  height: auto;
+  height: 100%;
   /* top: 20%; */
   /* left: 50%; */
   /* transform: translateX(-50%); */

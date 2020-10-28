@@ -30,12 +30,12 @@ export const App = () => {
           <Styled.Layout>
             <Styled.MainWrapper className='main-wrapper'>
               <Router>
-                <Styled.AppHeader className='rainbow-border'>
-                  <Styled.MainNav>
+                <Styled.AppHeader className='rainbow-border-semi-transparent'>
+                  {/* <Styled.MainNav> */}
                     {/* {authenticated ? <li><Link to='/logout' onClick={(e) => handleLogoutClick(e) }>Log Out</Link></li> : <li><Link to='/login'>Login</Link></li>}
                     {authenticated ? <li><Link to='/profile'>Profile</Link></li> : <li><Link to='/register'>Register</Link></li>} */}
-                    <li><Link to='/'>Home</Link></li>
-                  </Styled.MainNav>
+                    {/* <li><Link to='/'>Home</Link></li> */}
+                  {/* </Styled.MainNav> */}
                   <Styled.AppHeading>Front End Flash Cards</Styled.AppHeading>
                 </Styled.AppHeader>
                 <Styled.Content>

@@ -21,8 +21,12 @@ export const Card = styled.div`
               0 32px 32px rgba(0,0,0,0.075);
 
   @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-    max-width: 500px;
+    width: 100%;
+    height: auto;
+    min-width: 500px;
+    max-width: 800px;
     margin: 40px auto 0;
+    max-height: 66vh;
     /* padding: 0 ${Theme.spacing.default}; */
   }
 
@@ -119,22 +123,17 @@ export const Card = styled.div`
     flex-direction: column;
     text-align: center;
     padding: 20px 0;
+    height: 100%;
     min-height: 200px;
-    max-height: 200px;
+    max-height: 70vh;
 
     @media screen and (min-width: ${Theme.breakpoints.min.xs}) {
-      height: 100%;
+      height: 66vh;
       min-height: 300px;
-      max-height: 300px;
+      max-height: 600px;
       padding: 30px 20px;
       /* margin-left: -16px;
       margin-right: -16px; */
-    }
-
-
-    @media screen and (min-width: ${Theme.breakpoints.min.md}) {
-      min-height: 400px;
-      max-height: 400px;
     }
 
     &::-webkit-scrollbar {
@@ -193,23 +192,23 @@ export const Card = styled.div`
 
       p {
         margin: 0 0 15px;
-        font-size: ${Theme.fonts.sizes.default};
+        font-size: ${Theme.fonts.sizes.md};
         line-height: ${Theme.fonts.sizes.lineHeights.default};
         color: ${Theme.colors.default.base};
 
         &:not(.image-note) {
           text-align: left;
-          align-self: flex-start;
-          font-size: 16px; 
-          line-height: 22px; 
+          align-self: flex-start;  
+          font-size: ${Theme.fonts.sizes.md};
+          line-height: ${Theme.fonts.sizes.lineHeights.default};
           font-weight: 400;
 
           &:first-of-type {
             text-align: center;
             align-self: center;
-            font-weight: 600;
-            font-size: 18px; 
-            line-height: 24px;
+            font-weight: 600;    
+            font-size: ${Theme.fonts.sizes.md};
+            line-height: ${Theme.fonts.sizes.lineHeights.default};
             margin: 0 0 20px;
           }
         }
@@ -227,8 +226,8 @@ export const Card = styled.div`
       }
 
       li { 
-        font-size: 16px;
-        line-height: 22px;
+        font-size: ${Theme.fonts.sizes.md};
+        line-height: ${Theme.fonts.sizes.lineHeights.default};
         margin-bottom: 7.5px;
         padding-left: 10px;
         font-family: ${Theme.fonts.headings.family};
@@ -256,13 +255,12 @@ export const Card = styled.div`
   footer {
     max-width: 100%;
     padding: 13px 18px;
-    /* border-top: 2px solid ${Theme.colors.default.darkest}; */
     background-color: ${Theme.colors.default.lightGray};
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-position: top;
-    background-size: 100% 3px;
+    background-size: 100% 1px;
     padding-top: 17px;
   
 
@@ -276,12 +274,10 @@ export const Card = styled.div`
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
     padding: 0;
-    /* background-color: #fff; */
-    background-size: 100% 5px;
+    background-size: 100% 1.5px;
     padding-bottom: 5px;
-    /* border-top: 1px solid ${Theme.colors.default.gray}; */
-    background-color: ${Theme.colors.default.base};
-    border-bottom-width: 6px;
+    /* background-color: ${Theme.colors.default.lightGray}; */
+    border-bottom-width: 2px;
     border-bottom-style: solid;
 
     @media screen and (min-width: ${Theme.breakpoints.min.md}) {
@@ -356,7 +352,7 @@ export const Card = styled.div`
           line-height: 2.25rem;
 
           .level {
-            color: #fff;            
+            color: #345;            
             vertical-align: middle;
             line-height: 14px;
             font-weight: 400;
@@ -373,7 +369,7 @@ export const Card = styled.div`
           line-height: 2.25rem;
 
           .tag {
-            color: #fff;
+            color: #345;
             vertical-align: middle;
             line-height: 14px;
             font-weight: 400;
@@ -394,23 +390,28 @@ export const Card = styled.div`
           }
         }
 
-        h3,
         > span {
           font-size: 14px;
           line-height: 22.5px;
           vertical-align: middle;
           height: auto;
-          color: #fff;
+          color: #345;
         }
         
         h3 {
           font-family: ${Theme.fonts.headings.family};
           font-weight: 800;
+          vertical-align: middle;
+          height: auto;
           margin: 0 auto;
           width: unset;
+          font-size: 18px;
+          line-height: 24.5px;
+          color: #345;
 
           @media screen and (max-width: ${Theme.breakpoints.max.xs}) {
-            font-size: 13px;
+            font-size: 14px;
+            line-height: .5px;
           }
         }
       }
