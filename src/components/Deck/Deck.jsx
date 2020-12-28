@@ -38,15 +38,16 @@ const Deck = () => {
     }
   }
 
-  useEffect(() => {
-    if (!CardsContext.cards.length > 0) {
+  const loadContent = () => {
+    if (CardsContext.cards.length === 0) {
       CardsContext.getCards();
-    }
-
-    if (!CardsContext.categories.length > 0) {
       CardsContext.getCategories();
     }
-  }, []);
+  }
+
+  useEffect(() => {
+    loadContent();
+  });
   
   return (
     <Styled.Deck>

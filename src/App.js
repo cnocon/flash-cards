@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotFound from './components/NotFound/NotFound';
 import Deck from './components/Deck/Deck';
 import Theme from './Theme';
@@ -36,7 +36,7 @@ export const App = () => {
                 </Styled.Content>
               </Router>
               <Styled.AppFooter>
-                <p><b>Copyright &copy;2020</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://cristin.io" target="_blank" rel="noreferrer">CRISTIN.IO</a></p>
+                <p><b>Copyright &copy;2020</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://cristin.io" target="_blank" rel="noopener noreferrer">CRISTIN.IO</a></p>
               </Styled.AppFooter>
             </Styled.MainWrapper>
           </Styled.Layout>
